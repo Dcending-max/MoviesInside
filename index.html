@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoviesInside</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    header {
+      background-color: rgba(17, 17, 17, 0.85);
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      color: #e50914;
+      position: relative;
+      z-index: 1;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      background-color: rgba(28, 28, 28, 0.85);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+    }
+
+    .card p {
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    .download {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #e50914;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .download:hover {
+      background-color: #b00610;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="intro.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <header>MoviesInside</header>
+
+  <div class="grid">
+    <div class="card">
+      <img src="images.jpeg" alt="Movie Poster">
+      <div class="card-content">
+        <h3>A Minecraft movie</h3>
+        <p>Genre: Action, Sci-Fi</p>
+        <p>I am Steve!.</p>
+        <a href="https://ondatrack.org/" class="download">Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="Squidgame.jpg" alt="Movie Poster">
+      <div class="card-content">
+        <h3>SquidGame Season: 2</h3>
+        <p>Genre: Thriller, Action, Drama</p>
+        <p>Let the game begin.</p>
+        <a href="https://hubcloud.ink/drive/mymbb9hbbppqqyp" class="download">Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="Pushpa-2-The-Rule-RELOADED-2024-MoviesInside.jpg" alt="Movie Poster">
+      <div class="card-content">
+        <h3>Pushpa 2: The Rule (Reloaded Version)</h3>
+        <p>Genre: Action, Thriller</p>
+        <p>The clash is on as Pushpa and Bhanwar Singh continue.</p>
+        <a href="https://hubcloud.ink/drive/bz2inm3qe61xo1y" class="download">Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300x450?text=John+Wick+4" alt="Movie Poster">
+      <div class="card-content">
+        <h3>John Wick: Chapter 4</h3>
+        <p>Genre: Action, Thriller</p>
+        <p>John Wick takes on the High Table globally as he seeks out the most powerful players.</p>
+        <a href="https://example.com/johnwick4" class="download">Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300x450?text=Avatar+2" alt="Movie Poster">
+      <div class="card-content">
+        <h3>Avatar: The Way of Water</h3>
+        <p>Genre: Sci-Fi, Adventure</p>
+        <p>Jake Sully lives with his newfound family formed on the planet of Pandora.</p>
+        <a href="https://example.com/avatar2" class="download">Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300x450?text=Oppenheimer" alt="Movie Poster">
+      <div class="card-content">
+        <h3>Oppenheimer</h3>
+        <p>Genre: Biography, Drama, History</p>
+        <p>The story of American scientist J. Robert Oppenheimer and his role in the atomic bomb.</p>
+        <a href="https://example.com/oppenheimer" class="download">Download</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
