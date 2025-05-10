@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoviesInside</title>
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: rgba(17, 17, 17, 0.85);
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      color: #e50914;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: rgba(28, 28, 28, 0.85);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+    }
+
+    .card p {
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    .download,
+    .watch {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .download {
+      background-color: #e50914;
+      color: #fff;
+    }
+
+    .watch {
+      background-color: #00bfff;
+      color: #fff;
+      cursor: pointer;
+      border: none;
+    }
+
+    .download:hover {
+      background-color: #b00610;
+    }
+
+    .watch:hover {
+      background-color: #0099cc;
+    }
+
+    #video-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #video-modal video {
+      max-width: 90%;
+      max-height: 90%;
+    }
+  
+  #video-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  #player {
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+    aspect-ratio: 16 / 9;
+  }
+
+  #close-button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: #e50914;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 10000;
+  }
+
+  #close-button:hover {
+    background: #b00610;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Intro Video Splash -->
+  <div id="intro-video-container" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#000; z-index:9999; display:flex; align-items:center; justify-content:center;">
+    <video id="intro-video" autoplay muted playsinline style="width:100%; height:100%; object-fit:cover;">
+      <source src="VID-20250501-WA0002.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Main Content -->
+  <div id="main-content" style="display:none;">
+    <header>MoviesInside</header>
+
+    <div class="grid">
+      <div class="card">
+        <img src="images.jpeg" alt="Movie Poster">
+        <div class="card-content">
+          <h3>A Minecraft movie</h3>
+          <p>Genre: Action, Sci-Fi</p>
+          <p>I am Steve!.</p>
+          <a href="https://ondatrack.org/" class="download">Download</a>
+          <button class="watch" onclick="openVideo('https://ondatrack.org/')">Watch</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Squidgame.jpg" alt="Movie Poster">
+        <div class="card-content">
+          <h3>SquidGame Season: 2</h3>
+          <p>Genre: Thriller, Action, Drama</p>
+          <p>Let the game begin.</p>
+          <a href="https://hubcloud.ink/drive/mymbb9hbbppqqyp" class="download">Download</a>
+          <button class="watch" onclick="openVideo('https://example.com/squidgame2.mp4')">Watch</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Pushpa-2-The-Rule-RELOADED-2024-MoviesInside.jpg" alt="Movie Poster">
+        <div class="card-content">
+          <h3>Pushpa 2: The Rule (Reloaded Version)</h3>
+          <p>Genre: Action, Thriller</p>
+          <p>The clash is on as Pushpa and Bhanwar Singh continue.</p>
+          <a href="https://hubcloud.ink/drive/bz2inm3qe61xo1y" class="download">Download</a>
+          <button class="watch" onclick="openVideo('https://example.com/pushpa2.mp4')">Watch</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Aot moviesinside.jpg" alt="Movie Poster">
+        <div class="card-content">
+          <h3>Attack On Titan: Season 1</h3>
+          <p>Genre: Action, Thriller</p>
+          <p>A world of anime where people get devoured by large humans.</p>
+          <a href="https://hubdrive.fit/file/2523974038" class="download">Download</a>
+          <button class="watch" onclick="openVideo('https://example.com/aot1.mp4')">Watch</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/300x450?text=Avatar+2" alt="Movie Poster">
+        <div class="card-content">
+          <h3>Avatar: The Way of Water</h3>
+          <p>Genre: Sci-Fi, Adventure</p>
+          <p>Jake Sully lives with his newfound family formed on the planet of Pandora.</p>
+          <a href="https://example.com/avatar2" class="download">Download</a>
+          <button class="watch" onclick="openVideo('https://example.com/avatar2.mp4')">Watch</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/300x450?text=Oppenheimer" alt="Movie Poster">
+        <div class="card-content">
+          <h3>Oppenheimer</h3>
+          <p>Genre: Biography, Drama, History</p>
+          <p>The story of American scientist J. Robert Oppenheimer and his role in the atomic bomb.</p>
+          <a href="https://example.com/oppenheimer" class="download">Download</a>
+          <button class="watch" onclick="openVideo('https://example.com/oppenheimer.mp4')">Watch</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Modal -->
+  
+  <div id="video-modal">
+    <button id="close-button" onclick="closeVideo()">Close</button>
+
+    <video id="player" playsinline controls>
+      <source src="" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Scripts -->
+  
+<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+<script>
+  const intro = document.getElementById('intro-video');
+  intro.onended = () => {
+    document.getElementById('intro-video-container').style.display = 'none';
+    document.getElementById('main-content').style.display = 'block';
+  };
+
+  const modal = document.getElementById('video-modal');
+  const player = new Plyr('#player');
+
+  function openVideo(url) {
+    const source = document.querySelector('#player source');
+    source.src = url;
+    player.media.load();
+    modal.style.display = 'flex';
+    player.play();
+  }
+
+  function closeVideo() {
+    player.pause();
+    modal.style.display = 'none';
+  }
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeVideo();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") {
+      closeVideo();
+    }
+  });
+</script>
+
+  <script>
+    const intro = document.getElementById('intro-video');
+    intro.onended = () => {
+      document.getElementById('intro-video-container').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
+    };
+
+    const modal = document.getElementById('video-modal');
+    const player = new Plyr('#player');
+
+    function openVideo(url) {
+      const source = document.querySelector('#player source');
+      source.src = url;
+      player.media.load();
+      modal.style.display = 'flex';
+      player.play();
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        player.pause();
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
